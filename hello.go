@@ -5,8 +5,21 @@ import (
 	// "time"
 	// "math/rand"
 	// "math"
-	"math/cmplx"
+	// "math/cmplx"
 )
+
+const (
+	// Create a huge number by shifting a 1 bit left 100 places
+	// In other words, the binary number that is 1 followed by 100 zeroes
+	Big = 1 << 100
+	// Shift is right again 99 places, so we end up with 1<<1, or 2
+	Small = Big >> 99
+)
+
+func needInt(x int) int { return x*10 + 1}
+func needFloat(x float64) float64 {
+	return x * 0.1
+}
 
 // var c, python, java bool // Define boolean
 // var i, j int = 1, 2 // Variables with initializers
@@ -29,11 +42,11 @@ import (
 // 	return
 // }
 
-var (
-	ToBe   bool       = false
-	MaxInt uint64     = 1<<64 - 1
-	z      complex128 = cmplx.Sqrt(-5 + 12i)
-)
+// var (
+// 	ToBe   bool       = false
+// 	MaxInt uint64     = 1<<64 - 1
+// 	z      complex128 = cmplx.Sqrt(-5 + 12i)
+// )
 
 // func main() {
 // 	var i, j int = 1, 2
@@ -58,8 +71,41 @@ var (
 
 // }
 
+const Pi = 3.14 // not using := to declare constant
+
 func main() {
-	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
-	fmt.Printf("Type: %T Value: %v\n", MaxInt)
-	fmt.Printf("Type: %T Value: %v\n", z, z)
+	// fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
+	// fmt.Printf("Type: %T Value: %v\n", MaxInt)
+	// fmt.Printf("Type: %T Value: %v\n", z, z)
+
+	// var i int
+	// var f float64
+	// var b bool
+	// var s string
+	// fmt.Printf("%v %v %v %q\n", i, f, b, s)
+
+	// Type conversions
+
+	// var x,y int = 3, 4
+	// var f float64 = math.Sqrt(float64(x*x + y*y))
+	// var z uint = uint(f)
+	// fmt.Println(x, y, z)
+
+	// Type inference
+	// v := "42"
+	// fmt.Printf("v is of type %T\n", v)
+
+	// Constants
+	// const World = "世界"
+	// fmt.Println("Hello", World)
+	
+	// const Truth = true
+	// fmt.Println("Go rules?", Truth)
+
+	// Numeric Constants
+
+	fmt.Println(needInt(Small))
+	fmt.Println(needFloat(Small))
+	fmt.Println(needFloat(Big))
+
 }
